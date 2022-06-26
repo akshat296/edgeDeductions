@@ -1,6 +1,6 @@
 // https://gammacv.com
-const width = 600;
-const heigth = 450;
+const width = 500;
+const heigth = 400;
 // initialize WebRTC stream and session for runing operations on GPU
 const stream = new gm.CaptureVideo(width, heigth);
 const sess = new gm.Session();
@@ -15,9 +15,10 @@ const input = new gm.Tensor('uint8', [heigth, width, 4]);
 let pipeline = input
 
 pipeline = gm.grayscale(pipeline);
-pipeline = gm.gaussianBlur(pipeline, 3, 3);
+pipeline = gm.gaussianBlur(pipeline, 4, 3);
+// pipeline = gm.dilate(pipeline, [1, 1]);
 pipeline = gm.sobelOperator(pipeline);
-pipeline = gm.cannyEdges(pipeline, 0.25, 0.75);
+pipeline = gm.cannyEdges(pipeline, 0.25, 0.65);
 
 // initialize graph
 sess.init(pipeline);
