@@ -1,0 +1,18 @@
+{
+  "name": "video-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "start:nodemon": "nodemon --watch . --exec yarn start",
+    "compile": "browserify main.js -o bundle.js"
+  },
+  "dependencies": {
+    "gammacv": "^0.5.2"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "nodemon": "^2.0.18"
+  }
+}
